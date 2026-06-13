@@ -1,5 +1,11 @@
 # ⚡ ElectroRec
 
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)
+![Scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikit-learn&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 Sistem Rekomendasi Produk Elektronik berbasis **Content-Based Filtering** dan **Hybrid Scoring**, menggunakan dataset Amazon Marketplace.
 
 🔗 **Live Demo:** [electrorec-mqnd9hsgkznu95s8wumfn3.streamlit.app](https://electrorec-mqnd9hsgkznu95s8wumfn3.streamlit.app/)
