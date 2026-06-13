@@ -514,8 +514,57 @@ def rekomendasikan_produk(nama_produk, top_n=5, min_rating=4.0,
         })
     return pd.DataFrame(output)
 
+# Kamus sinonim Bahasa Indonesia -> Bahasa Inggris untuk pencarian
+# Membantu pencarian dengan istilah umum Indonesia agar tetap relevan
+KAMUS_SINONIM = {
+    'hp': 'smartphone mobile phone android',
+    'handphone': 'smartphone mobile phone android',
+    'ponsel': 'smartphone mobile phone android',
+    'tv': 'television smart tv led',
+    'televisi': 'television smart tv led',
+    'kabel': 'cable wire cord',
+    'casan': 'charger adapter',
+    'cas': 'charger adapter',
+    'pengisi daya': 'charger adapter power',
+    'earphone': 'earphone earbuds headphone',
+    'headset': 'headphone earphone',
+    'kamera': 'camera photography',
+    'jam tangan': 'smartwatch wearable watch',
+    'jam pintar': 'smartwatch wearable',
+    'speaker': 'speaker audio sound',
+    'baterai': 'battery batteries',
+    'laptop': 'laptop computer notebook',
+    'komputer': 'computer laptop pc',
+    'mouse': 'mouse wireless computer',
+    'keyboard': 'keyboard wireless computer',
+    'printer': 'printer office',
+    'router': 'router wifi network',
+    'powerbank': 'power bank battery charger portable',
+    'tripod': 'tripod stand camera',
+    'proyektor': 'projector display',
+    'remote': 'remote control',
+    'antigores': 'screen protector tempered glass',
+    'pelindung layar': 'screen protector tempered glass',
+}
+
+def perluas_kata_kunci(keyword):
+    """
+    Perluas kata kunci dengan menambahkan istilah Bahasa Inggris yang relevan
+    berdasarkan kamus sinonim, agar pencarian lebih akurat untuk istilah umum
+    Bahasa Indonesia (misal: 'hp' -> 'hp smartphone mobile phone android').
+    """
+    kata_kata = keyword.lower().split()
+    tambahan = []
+    for kata in kata_kata:
+        if kata in KAMUS_SINONIM:
+            tambahan.append(KAMUS_SINONIM[kata])
+    if tambahan:
+        return keyword + ' ' + ' '.join(tambahan)
+    return keyword
+
 def cari_by_keyword(keyword, top_n=5, min_rating=4.0, min_similarity=0.0):
-    keyword_clean = keyword.lower()
+    keyword_diperluas = perluas_kata_kunci(keyword)
+    keyword_clean = keyword_diperluas.lower()
     keyword_clean = re.sub(r'[^a-z0-9\s]', ' ', keyword_clean)
     keyword_clean = re.sub(r'\s+', ' ', keyword_clean).strip()
     keyword_vec = tfidf.transform([keyword_clean])
