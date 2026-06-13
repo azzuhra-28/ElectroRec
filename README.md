@@ -60,6 +60,16 @@ Variabel yang digunakan:
 
 ---
 
+## 📸 Screenshot Aplikasi
+
+### Landing Page
+![Landing Page](Picture/landing.png)
+
+### Hasil Rekomendasi
+![Rekomendasi](Picture/rekomendasi.png)
+
+---
+
 ## 🛠️ Cara Menjalankan Lokal
 
 ```bash
