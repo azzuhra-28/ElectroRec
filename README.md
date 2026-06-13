@@ -63,7 +63,7 @@ Variabel yang digunakan:
 ## 📸 Screenshot Aplikasi
 
 ### Landing Page
-![Landing Page](Picture/landing.png)
+![Landing Page](Picture/landing_page.png)
 
 ### Hasil Rekomendasi
 ![Rekomendasi](Picture/rekomendasi.png)
